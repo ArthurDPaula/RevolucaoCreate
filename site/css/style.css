@@ -17,15 +17,32 @@ body {
 }
 
 .bttLink {
-    border: 2px solid #221B11;
-    padding: 12px;
     transition-duration: 1.2ms;
-    border-radius: 5px;
+}
+
+/*Responsividade*/
+@media screen and (min-width: 700px) {
+    .bttLink {
+        border: 2px solid #221B11;
+        padding: 12px;
+        border-radius: 5px;
+    }
+
+    .bttLink:hover {
+        background-color: #221B11;
+        padding: 12px;
+        border-radius: 5px;
+        color: #fcfff7;
+    }
+
+    .container {
+        font-size: 18px;
+    }
 }
 
 .bttLink:hover {
-    background-color: #221B11;
-    color: #fcfff7;
+    border-bottom: 2px solid #221B11;
+    font-size: 1.15em;
 }
 
 .bttLinkInterno {
@@ -36,6 +53,8 @@ body {
     border-bottom: 2px solid #221B11;
     font-size: 1.15em;
 }
+
+
 /*Final da Padronização*/
 
 /*Começo do Header*/
@@ -53,13 +72,13 @@ body {
 
 .header .container img {
     height: 100px;
+    max-width: 100%;
 }
 
 .navBar {
     list-style: none;
     width: 430px;
     display: flex;
-    font-size: 18px;
     justify-content: space-evenly;
 }
 
@@ -68,6 +87,7 @@ body {
     text-decoration: none;
     font-weight: 700;
 }
+
 
 /*Final do Header*/
 
@@ -83,16 +103,24 @@ body {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 0.83em;
+    margin-bottom: 3%;
     border: 0.50em solid black;
 }
-.banner .container{
+
+.banner .container {
     width: 70%;
 }
+
 .texto {
     margin: 0.83em;
     font-size: 1.66em;
     text-align: center;
     color: #fcfff7;
+}
+
+.texto .navBar {
+    font-size: 18px;
+
 }
 
 .texto span {
@@ -128,3 +156,32 @@ body {
     height: 100px;
     width: 100px;
 }
+
+/*Começo do Footer*/
+.footer .container {
+    justify-content: space-between;
+    text-align: center;
+    color: #221B11;
+}
+
+.footer img {
+    height: 100px;
+    max-width: 100%;
+}
+
+.container .footerItem {
+    width: 33%;
+}
+
+.navFooter {
+    list-style: none;
+    padding: 0;
+}
+
+.navFooter a {
+    color: #221B11;
+    text-decoration: none;
+}
+
+
+/*Final do Footer*/
