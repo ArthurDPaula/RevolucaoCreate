@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&display=swap');
 
+html {
+    font-size: 18px;
+}
+
 body {
     font-family: 'Noto Sans', sans-serif;
     margin: 0;
@@ -18,26 +22,6 @@ body {
 
 .bttLink {
     transition-duration: 1.2ms;
-}
-
-/*Responsividade*/
-@media screen and (min-width: 700px) {
-    .bttLink {
-        border: 2px solid #221B11;
-        padding: 12px;
-        border-radius: 5px;
-    }
-
-    .bttLink:hover {
-        background-color: #221B11;
-        padding: 12px;
-        border-radius: 5px;
-        color: #fcfff7;
-    }
-
-    .container {
-        font-size: 18px;
-    }
 }
 
 .bttLink:hover {
@@ -61,7 +45,7 @@ body {
 .header {
     flex-direction: row;
     background-color: #fcfff7;
-    border-bottom: 2px solid black;
+    border-bottom: 3px solid black;
 }
 
 .header .container {
@@ -120,7 +104,6 @@ body {
 
 .texto .navBar {
     font-size: 18px;
-
 }
 
 .texto span {
@@ -158,6 +141,9 @@ body {
 }
 
 /*Começo do Footer*/
+.footer{
+    border-top: 3px solid black;
+}
 .footer .container {
     justify-content: space-between;
     text-align: center;
@@ -173,9 +159,18 @@ body {
     width: 33%;
 }
 
+.footerItem h2 {
+    margin: 5% 0;
+}
+
+.footerItem p {
+    margin-top: 0;
+}
+
 .navFooter {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .navFooter a {
@@ -183,5 +178,38 @@ body {
     text-decoration: none;
 }
 
+.navFooter img {
+    height: 20px;
+    max-width: 100%;
+}
+
 
 /*Final do Footer*/
+
+/*Responsividade*/
+@media screen and (min-width: 700px) {
+    .bttLink {
+        border: 2px solid #221B11;
+        padding: 12px;
+        border-radius: 5px;
+    }
+
+    .bttLink:hover {
+        background-color: #221B11;
+        padding: 12px;
+        border-radius: 5px;
+        color: #fcfff7;
+    }
+
+    .container {
+        font-size: 18px;
+    }
+
+    .navFooter a {
+        font-size: 1.1rem;
+    }
+
+    .navFooter span {
+        font-size: 1.2rem;
+    }
+}
