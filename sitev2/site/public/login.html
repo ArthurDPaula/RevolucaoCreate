@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Revolução Create | Login</title>
+
+    <script src="./js/funcoes.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="icon" href="assets/imgs/Andesite_Alloy.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!--Começo do Header-->
+    <div class="header">
+        <div class="container">
+            <a href="index.html">
+                <img src="https://cdnb.artstation.com/p/assets/images/images/043/019/625/large/jake-moore-create-banner6.jpg?1636062029"
+                    alt="">
+            </a>
+            <ul class="navBar">
+                <li><a href="" class="bttLinkInterno">GERADORES</a></li>
+                <li><a href="login.html" class="bttLink">LOGIN</a></li>
+                <li><a href="cadastro.html" class="bttLink">CADASTRO</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--Final do Header-->
+
+    <!--Começo do Banner-->
+    <div class="banner">
+        <div class="container">
+            <div class="corDeFundo">
+                <div class="texto">
+                    <h2>LOGIN</h2>
+                    <div class="form">
+                        <div class="label">
+                            <h3>Email:</h3>
+                            <input id="iptEmail">
+                        </div>
+                        <div class="label">
+                            <h3>Senha:</h3>
+                            <input id="iptSenha">
+                        </div>
+                        <button class="bttLogin" onclick="entrar()">ENTRAR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Final do Banner-->
+
+    <!--Começo do Footer-->
+    <div class="footer">
+        <div class="container">
+            <div class="footerItem">
+                <a href="index.html"><img
+                        src="https://cdnb.artstation.com/p/assets/images/images/043/019/625/large/jake-moore-create-banner6.jpg?1636062029"
+                        alt=""></a>
+                <p>Projeto criado com carinho para auxiliar jogadores novatos</p>
+            </div>
+            <div class="footerItem">
+                <h2>LINKS</h2>
+                <ul class="navFooter">
+                    <li><a href="">GERADORES</a></li>
+                    <li><a href="login.html">LOGIN</a></li>
+                    <li><a href="cadastro.html">CADASTRO</a></li>
+                </ul>
+            </div>
+            <div class="footerItem">
+                <h2>CONTATO</h2>
+                <ul class="navFooter contato">
+                    <li>
+                        <img src="img/instagram.png" alt="">
+                        <span>@revolCreate</span>
+                    </li>
+                    <li>
+                        <img src="img/o-email.png" alt="">
+                        <span>revolCreate@email.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--Final do Footer-->
+    <div id="cardErro" style="display: none;"></div>
+    <div id="mensagem_erro" style="display: none;"></div>
+    <div id="divAguardar" style="display: none;"></div>
+    <div id="divErrosLogin" style="display: none;"></div>
+    <div id="divModal" style="display: none;"></div>
+</body>
+
+</html>
+
+<script>
+
+
+    function entrar() {
+        aguardar();
+
+        var emailVar = iptEmail.value;
+        var senhaVar = iptSenha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/cards.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
