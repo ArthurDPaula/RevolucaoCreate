@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AquaTech | Cadastro</title>
-
+    <title>Revolução Create | Login</title>
 
     <script src="./js/funcoes.js"></script>
 
@@ -40,28 +39,21 @@
 
     <!--Começo do Banner-->
     <div class="banner">
-        <div class="container container2">
+        <div class="container">
             <div class="corDeFundo">
                 <div class="texto">
-                    <h2>CADASTRAR</h2>
-                    <div class="form formCadastro">
+                    <h2>LOGIN</h2>
+                    <div class="form">
                         <div class="label">
-                            <h3>Nome:</h3>
-                            <input id="iptNome">
-                        </div>
-                        <div class="label">
-                            <h3>Email:</h3>
+                            <label for="iptEmail">Email:</label>
                             <input id="iptEmail">
                         </div>
                         <div class="label">
-                            <h3>Senha:</h3>
+                            <label for="iptSenha">Senha:</label>
                             <input id="iptSenha">
                         </div>
-                        <div class="label" id="labelConfirmarSenha">
-                            <h3>Confirmar Senha:</h3>
-                            <input id="iptConfirmarSenha">
-                        </div>
-                        <button class="bttLogin" onclick="cadastrar()">REGISTRAR</button>
+                        <span>Ainda não possui uma conta? <a href="cadastro.html">Cadastre-se</a></span>
+                        <button class="bttLogin" onclick="entrar()">ENTRAR</button>
                     </div>
                 </div>
             </div>
@@ -90,11 +82,11 @@
                 <h2>CONTATO</h2>
                 <ul class="navFooter contato">
                     <li>
-                        <img src="img/instagram.png" alt="">
+                        <img src="assets/imgs/instagram.png" alt="">
                         <span>@revolCreate</span>
                     </li>
                     <li>
-                        <img src="img/o-email.png" alt="">
+                        <img src="assets/imgs/o-email.png" alt="">
                         <span>revolCreate@email.com</span>
                     </li>
                 </ul>
@@ -109,24 +101,20 @@
     <div id="divModal" style="display: none;"></div>
 </body>
 
-
 </html>
 
 <script>
-    function cadastrar() {
+
+
+    function entrar() {
         aguardar();
 
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
-        var nomeVar = iptNome.value;
         var emailVar = iptEmail.value;
         var senhaVar = iptSenha.value;
-        var confirmacaoSenhaVar = iptConfirmarSenha.value;
 
-        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-
             finalizarAguardar();
             return false;
         }
@@ -134,41 +122,51 @@
             setInterval(sumirMensagem, 5000)
         }
 
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
                 emailServer: emailVar,
                 senhaServer: senhaVar
             })
         }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
+            console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.ok) {
-                cardErro.style.display = "block";
+                console.log(resposta);
 
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
 
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, "2000")
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
 
-                limparFormulario();
-                finalizarAguardar();
+                    setTimeout(function () {
+                        window.location = "perfil.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
             } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
             }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
-        });
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
 
         return false;
     }

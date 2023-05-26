@@ -1,0 +1,23 @@
+html {
+    font-size: 18px;
+}
+.banner{
+    background-image: url(../assets/imgs/img_de_fundo_perfil.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+.banner .container{
+    width: 80%;
+}
+.banner .corDeFundo{
+    border: 0.3rem solid black;
+    background-color: #fcfff7;
+}
+.texto{
+    text-align: start;
+}
+.texto img{
+    width: 8.5rem;
+    border-radius: 50%;
+    border: 0.2rem solid black;
+}
