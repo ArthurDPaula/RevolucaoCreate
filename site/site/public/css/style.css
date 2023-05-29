@@ -87,13 +87,12 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 0.83rem;
     margin-bottom: 3%;
-    border: 0.50rem solid black;
+    border: 0.3rem solid black;
 }
 
 .banner .container {
     width: 70%;
 }
-
 .texto {
     margin: 0.83rem;
     font-size: 1.66rem;
@@ -126,6 +125,7 @@ body {
 
 .card p {
     margin: 0;
+    color: #fcfff7;
 }
 
 .texto .navBar {
@@ -138,6 +138,18 @@ body {
     height: 5.5rem;
     width: 5.5rem;
 }
+/*Final dos Cards*/
+
+/*Começo da Wiki*/
+.wiki {
+    display: flex;
+    font-size: 1.2rem;
+    text-align: start;
+    width: 90%;
+    margin: auto;
+    flex-wrap: wrap;
+}
+/*Final da Wiki*/
 
 /*Começo do Footer*/
 .footer{
