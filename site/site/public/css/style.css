@@ -93,6 +93,7 @@ body {
 .banner .container {
     width: 70%;
 }
+
 .texto {
     margin: 0.83rem;
     font-size: 1.66rem;
@@ -138,6 +139,7 @@ body {
     height: 5.5rem;
     width: 5.5rem;
 }
+
 /*Final dos Cards*/
 
 /*Começo da Wiki*/
@@ -148,14 +150,55 @@ body {
     width: 90%;
     margin: auto;
     flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.wiki p {
+    margin: 0.8rem 0;
+}
+
+.wiki ul {
+    margin: 0;
+}
+
+.wiki-table {
+    background: none;
+    border: 1px solid #555555;
+    border-collapse: collapse;
+    border-radius: 3px;
+    border-spacing: 0;
+    display: table;
+    background-color: #3a3a3a;
+    margin-right: auto;
+}
+
+.wiki caption {
+    border: solid #555555;
+    background-color: #3a3a3a;
+    border-width: 1px 1px 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.75;
+    padding: 8px 12px;
+}
+.wiki .table-header{
+    box-shadow: 0 0 10px 0 rgb(30 12 27 / 20%);
+    outline: 1px solid #555555;
+    position: relative;
+}
+.wiki th, td{
+    border: 1px solid #555555;
+    padding: 12px;
+    vertical-align: middle;
 }
 /*Final da Wiki*/
 
 /*Começo do Footer*/
-.footer{
+.footer {
     border-top: 3px solid black;
     height: 10rem;
 }
+
 .footer .container {
     justify-content: space-between;
     text-align: center;

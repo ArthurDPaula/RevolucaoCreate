@@ -13,11 +13,16 @@ html {
     border: 0.3rem solid black;
     background-color: #fcfff7;
 }
-.texto{
+.perfil{
     text-align: start;
+    margin: 1.2rem;
+    font-size: 1.5rem;
 }
-.texto img{
+.perfil img{
     width: 8.5rem;
     border-radius: 50%;
     border: 0.2rem solid black;
+}
+.perfil p {
+    margin: 0.8rem;
 }
