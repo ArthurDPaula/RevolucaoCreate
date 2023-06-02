@@ -30,6 +30,7 @@ body {
 
 .bttLinkInterno {
     transition: width 1.2ms;
+    cursor:pointer;
 }
 
 .bttLinkInterno:hover {

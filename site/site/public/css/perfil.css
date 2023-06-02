@@ -1,28 +1,65 @@
 html {
     font-size: 18px;
 }
-.banner{
+
+.banner {
     background-image: url(../assets/imgs/img_de_fundo_perfil.jpg);
     background-attachment: fixed;
     background-size: cover;
 }
-.banner .container{
+
+.banner .container {
     width: 80%;
 }
-.banner .corDeFundo{
+
+.banner .corDeFundo {
     border: 0.3rem solid black;
     background-color: #fcfff7;
 }
-.perfil{
-    text-align: start;
+
+.perfil {
+    text-align: center;
     margin: 1.2rem;
     font-size: 1.5rem;
 }
-.perfil img{
+
+.perfil img {
     width: 8.5rem;
     border-radius: 50%;
     border: 0.2rem solid black;
 }
+
 .perfil p {
     margin: 0.8rem;
+}
+
+.div-form {
+    color: #fcfff7;
+    margin: auto;
+    background-color: #221B11;
+    width: 40%;
+    border: 0.2rem solid black;
+    border-radius: 0.8rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.div-form h2 {
+    text-align: center;
+    text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000,
+        1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+}
+
+.div-form input {
+    height: 20px;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.div-form p {
+    text-align: center;
+
 }
