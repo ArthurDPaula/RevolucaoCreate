@@ -5,15 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/funcoes.js"></script>
+    <title>Revolução Create | Geradores</title>
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/perfil.css">
-    <link rel="icon" href="assets/imgs/Andesite_Alloy.png" type="image/png">
+    <script src="js/funcoes.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <title>Revolução Create | Perfil</title>
+    <link rel="icon" href="assets/imgs/Andesite_Alloy.png" type="image/png">
 </head>
+<!--validarSessao(),-->
 
-<body onload="validarSessao()"> 
+<body onload=" atualizarFeed()">
     <!--Começo do Header-->
     <div class="header">
         <div class="container">
@@ -24,6 +26,7 @@
                 <li><a href="" class="bttLinkInterno" onclick="">GERADORES</a></li>
                 <li><a href="login.html" class="bttLink">LOGIN</a></li>
                 <li><a href="cadastro.html" class="bttLink">CADASTRO</a></li>
+                <li><a onclick="limparSessao()" class="bttLinkInterno">SAIR</a></li>
             </ul>
         </div>
     </div>
@@ -34,10 +37,33 @@
         <div class="container">
             <div class="corDeFundo">
                 <div class="perfil">
-                    <img src="https://wallpapers.com/images/hd/aesthetic-anime-profile-pictures-bhd9p0mn9mabufcm.jpg"
-                        alt="">
-                    <p>Usuário: <span id="b_usuario">Usuário</span></p>
-                    <p>Email: <span id="b_email">Email</span></p>
+                    <p>Olá <span id="b_usuario">Usuário</span>, nessa página é possível medir a quantidade de energia e
+                        qual velocidade de rotação dos geradores éolicos do Create</p>
+                </div>
+                <div class="div-form">
+                    <h2>Calcular Geração</h2>
+                    <div class="div-post">
+                        <form id="form_postagem" method="post" onsubmit="return publicar()">
+                            <label>
+                                Quantidade de velas (sails):
+                                <br>
+                                <input name="qtdeVelas" id="qtdeVelas" maxlength="3" type="number" placeholder="De 8 até 128">
+                            </label>
+                            <br>
+                            <p>
+                                <button>Enviar</button>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+                <h2 style="text-align: center;">Geradores Registrados</h2>
+                <div class="div-results">
+                    <div id="feed_container">
+                        <span>Id:</span>
+                        <span>Quantidade de Velas:</span>
+                        <span>Energia Gerada:</span>
+                        <span>Velocidade de Rotação:</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -77,7 +103,209 @@
         </div>
     </div>
     <!--Final do Footer-->
-
 </body>
 
 </html>
+
+<script>
+
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    function limparFormulario() {
+        document.getElementById("form_postagem").reset();
+    }
+
+    function publicar() {
+        var idUser = sessionStorage.ID_USUARIO;
+        var gerador ={
+            qtdeVelas: form_postagem.qtdeVelas.value
+        }
+        var energiaGerada = 512;
+        var rpm = 0;
+
+        if (gerador.qtdeVelas >= 8 && gerador.qtdeVelas <= 128) {
+            if (gerador.qtdeVelas == 8) {
+                rpm = 1
+                energiaGerada = energiaGerada * rpm
+            }else if (gerador.qtdeVelas <= 16 && gerador.qtdeVelas >=9) {
+                rpm = 2
+                energiaGerada = energiaGerada * rpm
+            }else if (gerador.qtdeVelas <= 24 && gerador.qtdeVelas >=17) {
+                rpm = 3
+                energiaGerada = energiaGerada * rpm
+            }else if (gerador.qtdeVelas <= 32 && gerador.qtdeVelas >=25) {
+                rpm = 4
+                energiaGerada = energiaGerada * rpm
+            }else if (gerador.qtdeVelas <= 40 && gerador.qtdeVelas >=33) {
+                rpm = 5
+                energiaGerada = energiaGerada * rpm
+            }else if (gerador.qtdeVelas <= 48 && gerador.qtdeVelas >=41) {
+                rpm = 6
+                energiaGerada = energiaGerada * rpm
+            }else if (gerador.qtdeVelas <= 56 && gerador.qtdeVelas >=49) {
+                rpm = 7
+                energiaGerada = energiaGerada * rpm
+            }else if (gerador.qtdeVelas <= 64 && gerador.qtdeVelas >=57) {
+                rpm = 8
+                energiaGerada = energiaGerada * rpm
+            }else if (gerador.qtdeVelas <= 72 && gerador.qtdeVelas >= 65) {
+                rpm = 9
+                energiaGerada = energiaGerada * rpm
+            }else if (gerador.qtdeVelas <= 80 && gerador.qtdeVelas >=73) {
+                rpm = 10
+                energiaGerada = energiaGerada * rpm
+            }else if (gerador.qtdeVelas <= 88 && gerador.qtdeVelas >=81) {
+                rpm = 11
+                energiaGerada = energiaGerada * rpm
+            }else if (gerador.qtdeVelas <= 96 && gerador.qtdeVelas >=89) {
+                rpm = 12
+                energiaGerada = energiaGerada * rpm
+            }else if (gerador.qtdeVelas <= 104 && gerador.qtdeVelas >=97) {
+                rpm = 13
+                energiaGerada = energiaGerada * rpm
+            }else if (gerador.qtdeVelas <= 112 && gerador.qtdeVelas >=105) {
+                rpm = 14
+                energiaGerada = energiaGerada * rpm
+            }else if (gerador.qtdeVelas <= 120 && gerador.qtdeVelas >=113) {
+                rpm = 15
+                energiaGerada = energiaGerada * rpm
+            }else if (gerador.qtdeVelas <= 128 && gerador.qtdeVelas >=121) {
+                rpm = 16
+                energiaGerada = energiaGerada * rpm
+            }
+
+            fetch(`/avisos/publicar/${idUser}`, {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(gerador)
+            }).then(function (resposta) {
+                
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    window.alert("Post realizado com sucesso pelo usuario de ID: " + idUser + "!");
+                    window.location = "perfil.html";
+                    limparFormulario();
+                //    finalizarAguardar();
+                } else if (resposta.status == 404) {
+                    window.alert("Deu 404!");
+                } else {
+                    throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                console.log(`${gerador.qtdeVelas}`)
+            //    finalizarAguardar();
+            });
+
+            return false;
+        } else {
+            window.alert(`A quantidade de velas deve estar entre 8 e 128`);
+        }
+
+    }
+    /*
+        function editar(idAviso) {
+            sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
+            console.log("cliquei em editar - " + idAviso);
+            window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
+            window.location = "/dashboard/edicao-aviso.html"
+        }
+    */
+    function deletar(idAviso) {
+        console.log("Criar função de apagar post escolhido - ID" + idAviso);
+        fetch(`/avisos/deletar/${idAviso}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+                window.location = "perfil.html"
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+
+    function atualizarFeed() {
+        fetch("/avisos/listar").then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    var feed = document.getElementById("feed_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.innerHTML = "Nenhum resultado encontrado."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
+
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                    var feed = document.getElementById("feed_container");
+                    feed.innerHTML = "";
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
+
+                        // criando e manipulando elementos do HTML via JavaScript
+                        var spanID = document.createElement("span");
+                        var spanVelas = document.createElement("span");
+                        var spanEnergia = document.createElement("span");
+                        var spanRPM = document.createElement("span");
+                        var divItem = document.createElement("div")
+                        //var divDescricao = document.createElement("div");
+                        //var divButtons = document.createElement("div");
+                        //var btnEditar = document.createElement("button");
+                        //var btnDeletar = document.createElement("button");
+
+                        spanID.innerHTML = "ID: <b>" + publicacao.idGerador + "</b>";
+                        spanVelas.innerHTML = "Quantidade deVelas: <b>" + publicacao.qtdeVelas + "</b>";
+                        spanEnergia.innerHTML = "Energia Gerada: <b>" + publicacao.energia + "</b>";
+                        spanRPM.innerHTML = "RPM: <b>" + publicacao.rpm + "</b>";
+                        //btnEditar.innerHTML = "Editar";
+                        //btnDeletar.innerHTML = "Deletar";
+
+                        divItem.className = "feed-item";
+
+                        //feed-item.className = "publicacao";
+                        //spanTitulo.id = "inputNumero" + publicacao.idAviso;
+                        //spanNome.className = "publicacao-nome";
+                        //spanTitulo.className = "publicacao-titulo";
+                        //divDescricao.className = "publicacao-descricao";
+//
+                        //divButtons.className = "div-buttons"
+
+                        //btnEditar.className = "publicacao-btn-editar"
+                        //btnEditar.id = "btnEditar" + publicacao.idAviso;
+                        //btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
+
+                        //btnDeletar.className = "publicacao-btn-editar"
+                        //btnDeletar.id = "btnDeletar" + publicacao.idAviso;
+                        //btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
+                        
+                        divItem.appendChild(spanID);
+                        divItem.appendChild(spanVelas);
+                        divItem.appendChild(spanEnergia);
+                        divItem.appendChild(spanRPM);
+                        feed.appendChild(divItem);
+                    }
+                    finalizarAguardar();
+                });
+            } else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+            finalizarAguardar();
+        });
+    }
+
+</script>

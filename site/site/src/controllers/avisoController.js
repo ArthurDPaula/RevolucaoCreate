@@ -20,9 +20,9 @@ function listar(req, res) {
 }
 
 function listarPorUsuario(req, res) {
-    var idUsuario = req.params.idUsuario;
+    var idUser = req.params.idUser;
 
-    avisoModel.listarPorUsuario(idUsuario)
+    avisoModel.listarPorUsuario(idUser)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
@@ -66,18 +66,21 @@ function pesquisarDescricao(req, res) {
 }
 
 function publicar(req, res) {
-    var titulo = req.body.titulo;
-    var descricao = req.body.descricao;
-    var idUsuario = req.params.idUsuario;
+    var qtdeVelas = req.body.qtdeVelas;
+    var energiaGerada = req.body.energiaGerada;
+    var rpm = req.body.rpm;
+    var idUser = req.params.idUser;
 
-    if (titulo == undefined) {
-        res.status(400).send("O título está indefinido!");
-    } else if (descricao == undefined) {
-        res.status(400).send("A descrição está indefinido!");
-    } else if (idUsuario == undefined) {
+    if (qtdeVelas == undefined) {
+        res.status(400).send("O qtdeVelas está indefinido!");
+    } else if (energiaGerada == undefined) {
+        res.status(400).send("A energiaGerada está indefinido!");
+    } else if (rpm == undefined) {
+        res.status(400).send("A rpm está indefinido!");
+    } else if (idUser == undefined) {
         res.status(403).send("O id do usuário está indefinido!");
     } else {
-        avisoModel.publicar(titulo, descricao, idUsuario)
+        avisoModel.publicar(qtdeVelas, energiaGerada, rpm, idUser)
             .then(
                 function (resultado) {
                     res.json(resultado);

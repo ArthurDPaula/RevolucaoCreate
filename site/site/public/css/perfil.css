@@ -63,3 +63,21 @@ html {
     text-align: center;
 
 }
+.div-results{
+    width: 90%;
+    margin: auto;
+    background-color: #221B11;
+    border: 3px solid #000;
+    border-radius: 2.5rem;
+    color: #fcfff7;
+}
+#feed_container{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+}
+.feed-item{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
