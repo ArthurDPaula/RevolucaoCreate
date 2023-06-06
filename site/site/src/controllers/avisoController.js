@@ -67,19 +67,21 @@ function pesquisarDescricao(req, res) {
 
 function publicar(req, res) {
     var qtdeVelas = req.body.qtdeVelas;
-    var energiaGerada = req.body.energiaGerada;
     var rpm = req.body.rpm;
     var idUser = req.params.idUser;
+    var energiaGerada = 512*rpm;
+    
+    console.log(`TOMATE RUUUUUUUUUUUUUUUU `)
 
-    if (qtdeVelas == undefined) {
-        res.status(400).send("O qtdeVelas está indefinido!");
-    } else if (energiaGerada == undefined) {
-        res.status(400).send("A energiaGerada está indefinido!");
-    } else if (rpm == undefined) {
-        res.status(400).send("A rpm está indefinido!");
-    } else if (idUser == undefined) {
-        res.status(403).send("O id do usuário está indefinido!");
-    } else {
+    // if (qtdeVelas == undefined) {
+    //     res.status(400).send("O qtdeVelas está indefinido!");
+    // } else if (energiaGerada == undefined) {
+    //     res.status(400).send("A energiaGerada está indefinido!");
+    // } else if (rpm == undefined) {
+    //     res.status(400).send("A rpm está indefinido!");
+    // } else if (idUser == undefined) {
+    //     res.status(403).send("O id do usuário está indefinido!");
+    // } else {
         avisoModel.publicar(qtdeVelas, energiaGerada, rpm, idUser)
             .then(
                 function (resultado) {
@@ -94,7 +96,7 @@ function publicar(req, res) {
                 }
             );
     }
-}
+
 
 function editar(req, res) {
     var novaDescricao = req.body.descricao;

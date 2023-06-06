@@ -47,7 +47,8 @@
                             <label>
                                 Quantidade de velas (sails):
                                 <br>
-                                <input name="qtdeVelas" id="qtdeVelas" maxlength="3" type="number" placeholder="De 8 até 128">
+                                <input name="qtdeVelas" id="qtdeVelas" maxlength="3" type="number"
+                                    placeholder="De 8 até 128">
                             </label>
                             <br>
                             <p>
@@ -108,7 +109,7 @@
 </html>
 
 <script>
-
+    var idUser = sessionStorage.ID_USUARIO;
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     function limparFormulario() {
@@ -116,79 +117,81 @@
     }
 
     function publicar() {
-        var idUser = sessionStorage.ID_USUARIO;
-        var gerador ={
-            qtdeVelas: form_postagem.qtdeVelas.value
+
+        var gerador = {
+            qtdeVelas: qtdeVelas.value,
+energiaGerada:0,
+rpm:0
         }
-        var energiaGerada = 512;
-        var rpm = 0;
+        // var gerador.energiaGerada = 512;
+        // var gerador.rpm = 0;
 
         if (gerador.qtdeVelas >= 8 && gerador.qtdeVelas <= 128) {
             if (gerador.qtdeVelas == 8) {
-                rpm = 1
-                energiaGerada = energiaGerada * rpm
-            }else if (gerador.qtdeVelas <= 16 && gerador.qtdeVelas >=9) {
-                rpm = 2
-                energiaGerada = energiaGerada * rpm
-            }else if (gerador.qtdeVelas <= 24 && gerador.qtdeVelas >=17) {
-                rpm = 3
-                energiaGerada = energiaGerada * rpm
-            }else if (gerador.qtdeVelas <= 32 && gerador.qtdeVelas >=25) {
-                rpm = 4
-                energiaGerada = energiaGerada * rpm
-            }else if (gerador.qtdeVelas <= 40 && gerador.qtdeVelas >=33) {
-                rpm = 5
-                energiaGerada = energiaGerada * rpm
-            }else if (gerador.qtdeVelas <= 48 && gerador.qtdeVelas >=41) {
-                rpm = 6
-                energiaGerada = energiaGerada * rpm
-            }else if (gerador.qtdeVelas <= 56 && gerador.qtdeVelas >=49) {
-                rpm = 7
-                energiaGerada = energiaGerada * rpm
-            }else if (gerador.qtdeVelas <= 64 && gerador.qtdeVelas >=57) {
-                rpm = 8
-                energiaGerada = energiaGerada * rpm
-            }else if (gerador.qtdeVelas <= 72 && gerador.qtdeVelas >= 65) {
-                rpm = 9
-                energiaGerada = energiaGerada * rpm
-            }else if (gerador.qtdeVelas <= 80 && gerador.qtdeVelas >=73) {
-                rpm = 10
-                energiaGerada = energiaGerada * rpm
-            }else if (gerador.qtdeVelas <= 88 && gerador.qtdeVelas >=81) {
-                rpm = 11
-                energiaGerada = energiaGerada * rpm
-            }else if (gerador.qtdeVelas <= 96 && gerador.qtdeVelas >=89) {
-                rpm = 12
-                energiaGerada = energiaGerada * rpm
-            }else if (gerador.qtdeVelas <= 104 && gerador.qtdeVelas >=97) {
-                rpm = 13
-                energiaGerada = energiaGerada * rpm
-            }else if (gerador.qtdeVelas <= 112 && gerador.qtdeVelas >=105) {
-                rpm = 14
-                energiaGerada = energiaGerada * rpm
-            }else if (gerador.qtdeVelas <= 120 && gerador.qtdeVelas >=113) {
-                rpm = 15
-                energiaGerada = energiaGerada * rpm
-            }else if (gerador.qtdeVelas <= 128 && gerador.qtdeVelas >=121) {
-                rpm = 16
-                energiaGerada = energiaGerada * rpm
-            }
+                gerador.rpm = 1
+                gerador.energiaGerada = gerador.energiaGerada * gerador.rpm
+            } else if (gerador.qtdeVelas <= 16 && gerador.qtdeVelas >= 9) {
+                gerador.rpm = 2
+                gerador.energiaGerada = gerador.energiaGerada * gerador.rpm
+            } else if (gerador.qtdeVelas <= 24 && gerador.qtdeVelas >= 17) {
+                gerador.rpm = 3
+                gerador.energiaGerada = gerador.energiaGerada * gerador.rpm
+            } else if (gerador.qtdeVelas <= 32 && gerador.qtdeVelas >= 25) {
+                gerador.rpm = 4
+                gerador.energiaGerada = gerador.energiaGerada * gerador.rpm
+            } else if (gerador.qtdeVelas <= 40 && gerador.qtdeVelas >= 33) {
+                gerador.rpm = 5
+                gerador.energiaGerada = gerador.energiaGerada * gerador.rpm
+            } else if (gerador.qtdeVelas <= 48 && gerador.qtdeVelas >= 41) {
+                gerador.rpm = 6
+                gerador.energiaGerada = gerador.energiaGerada * gerador.rpm
+            } else if (gerador.qtdeVelas <= 56 && gerador.qtdeVelas >= 49) {
+                gerador.rpm = 7
+                gerador.energiaGerada = gerador.energiaGerada * gerador.rpm
+            } else if (gerador.qtdeVelas <= 64 && gerador.qtdeVelas >= 57) {
+                gerador.rpm = 8
+                gerador.energiaGerada = gerador.energiaGerada * gerador.rpm
+            } else if (gerador.qtdeVelas <= 72 && gerador.qtdeVelas >= 65) {
+                gerador.rpm = 9
+                gerador.energiaGerada = gerador.energiaGerada * gerador.rpm
+            } else if (gerador.qtdeVelas <= 80 && gerador.qtdeVelas >= 73) {
+                gerador.rpm = 10
+                gerador.energiaGerada = gerador.energiaGerada * gerador.rpm
+            } else if (gerador.qtdeVelas <= 88 && gerador.qtdeVelas >= 81) {
+                gerador.rpm = 11
+                gerador.energiaGerada = gerador.energiaGerada * gerador.rpm
+            } else if (gerador.qtdeVelas <= 96 && gerador.qtdeVelas >= 89) {
+                gerador.rpm = 12
+                gerador.energiaGerada = gerador.energiaGerada * gerador.rpm
+            } else if (gerador.qtdeVelas <= 104 && gerador.qtdeVelas >= 97) {
+                gerador.rpm = 13
+                gerador.energiaGerada = gerador.energiaGerada * gerador.rpm
+            } else if (gerador.qtdeVelas <= 112 && gerador.qtdeVelas >= 105) {
+                gerador.rpm = 14
+                gerador.energiaGerada = gerador.energiaGerada * gerador.rpm
+            } else if (gerador.qtdeVelas <= 120 && gerador.qtdeVelas >= 113) {
+                gerador.rpm = 15
+                gerador.energiaGerada = gerador.energiaGerada * gerador.rpm
+            } else if (gerador.qtdeVelas <= 128 && gerador.qtdeVelas >= 121) {
+                gerador.rpm = 16
+                gerador.energiaGerada = gerador.energiaGerada * gerador.rpm
+            };
 
             fetch(`/avisos/publicar/${idUser}`, {
-                method: "post",
+                method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(gerador)
             }).then(function (resposta) {
-                
-                console.log("resposta: ", resposta);
+
+                console.log("resposta:aaaaaaaaaaa ", resposta);
 
                 if (resposta.ok) {
                     window.alert("Post realizado com sucesso pelo usuario de ID: " + idUser + "!");
                     window.location = "perfil.html";
                     limparFormulario();
-                //    finalizarAguardar();
+                    //    finalizarAguardar();
                 } else if (resposta.status == 404) {
                     window.alert("Deu 404!");
                 } else {
@@ -196,14 +199,17 @@
                 }
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
-                console.log(`${gerador.qtdeVelas}`)
-            //    finalizarAguardar();
+                console.log(`${gerador.qtdeVelas}, ${gerador.rpm}, ${gerador.energiaGerada}`)
+                var respostaFormatada = resposta.JSON;
+                console.log(respostaFormatada);
+                //    finalizarAguardar();
             });
 
             return false;
-        } else {
-            window.alert(`A quantidade de velas deve estar entre 8 e 128`);
         }
+        //     else {
+        //     window.alert(`A quantidade de velas deve estar entre 8 e 128`);
+        // }
 
     }
     /*
@@ -214,6 +220,7 @@
             window.location = "/dashboard/edicao-aviso.html"
         }
     */
+    /*
     function deletar(idAviso) {
         console.log("Criar função de apagar post escolhido - ID" + idAviso);
         fetch(`/avisos/deletar/${idAviso}`, {
@@ -235,6 +242,7 @@
             console.log(`#ERRO: ${resposta}`);
         });
     }
+    */
 
     function atualizarFeed() {
         fetch("/avisos/listar").then(function (resposta) {
@@ -280,7 +288,7 @@
                         //spanNome.className = "publicacao-nome";
                         //spanTitulo.className = "publicacao-titulo";
                         //divDescricao.className = "publicacao-descricao";
-//
+                        //
                         //divButtons.className = "div-buttons"
 
                         //btnEditar.className = "publicacao-btn-editar"
@@ -290,7 +298,7 @@
                         //btnDeletar.className = "publicacao-btn-editar"
                         //btnDeletar.id = "btnDeletar" + publicacao.idAviso;
                         //btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
-                        
+
                         divItem.appendChild(spanID);
                         divItem.appendChild(spanVelas);
                         divItem.appendChild(spanEnergia);

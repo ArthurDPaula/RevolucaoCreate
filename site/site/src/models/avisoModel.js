@@ -68,7 +68,7 @@ function listarPorUsuario(idUser) {
 function publicar(qtdeVelas, energia, rpm, idUser) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ", qtdeVelas, energia, rpm, idUser);
     var instrucao = `
-        INSERT INTO geradores (qtdeVelas, energia, rpm, fk_usuario) VALUES (${qtdeVelas}, ${energia}, ${rpm},  ${idUser});
+        INSERT INTO geradores (qtdeVelas, energia, rpm, fkUser) VALUES (${qtdeVelas}, ${energia}, ${rpm},  ${idUser});
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

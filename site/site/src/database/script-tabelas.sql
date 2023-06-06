@@ -15,4 +15,19 @@ CREATE TABLE geradores (
 	rpm INT,
 	fkUser INT,
 	FOREIGN KEY (fkUser) REFERENCES usuario(idUser)
-)
+);
+INSERT INTO geradores VALUES
+(NULL, 8, 512, 1, 1);
+        SELECT 
+        g.idGerador,
+        g.qtdeVelas,
+        g.energia,
+        g.rpm,
+        g.fkUser,
+        u.idUser,
+        u.nome,
+        u.email,
+        u.senha
+        FROM geradores g
+            INNER JOIN usuario u
+                ON g.fkUser = u.idUser;
