@@ -46,8 +46,15 @@ html {
 
 }
 
+.corDeFundo h2 {
+    text-align: center;
+    color: #000;
+    font-size: 2rem;
+}
+
 .div-form h2 {
     text-align: center;
+    color: #fcfff7;
     text-shadow: 1px 0 #000, -1px 0 #000, 0 1px #000, 0 -1px #000,
         1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
 }
@@ -63,7 +70,8 @@ html {
     text-align: center;
 
 }
-.div-results{
+
+.div-results {
     width: 90%;
     margin: auto;
     background-color: #221B11;
@@ -71,14 +79,22 @@ html {
     border-radius: 2.5rem;
     color: #fcfff7;
 }
-#feed_container{
-    display: flex;
-    justify-content: space-evenly;
+
+#feed_container {
     padding: 1rem;
 }
-.feed-item{
+
+.feed-item {
     display: flex;
     justify-content: space-evenly;
- flex-wrap: wrap;
     width: 100%;
+    border: 1px solid #fcfff7;
+    border-radius: 1rem;
+    align-items: center;
+    margin: 8px 0;
+}
+
+.feed-item span {
+    margin-top: 0.5rem;
+    width: 8rem;
 }
