@@ -49,7 +49,7 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 350px;
+    height: 100%;
     margin: 2% 7.5%;
     margin-top: 0;
 }
