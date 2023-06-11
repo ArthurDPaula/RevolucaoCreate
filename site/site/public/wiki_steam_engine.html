@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Steam Engine | Revolução Create</title>
+
+    <script src="./js/funcoes.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/imgs/Andesite_Alloy.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+
+<body>
+    <!--Começo do Header-->
+    <div class="header">
+        <div class="container">
+            <a href="index.html">
+                <img src="assets/imgs/Site-logo.png" alt="">
+            </a>
+            <ul class="navBar">
+                <li><a href="perfil.html" class="bttLinkInterno">GERADORES</a></li>
+                <li><a href="login.html" class="bttLink">LOGIN</a></li>
+                <li><a href="cadastro.html" class="bttLink">CADASTRO</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--Final do Header-->
+
+    <!--Começo do Banner-->
+    <div class="banner">
+        <div class="container">
+            <div class="corDeFundo">
+                <div class="texto">
+                    <span>Wiki</span>
+                    <p>Essa página tem como propósito explicar resumidamente alguns conceitos básicos do mod e auxiliar
+                        jogadores que estejam interessados em aprender como funciona o Create.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="corDeFundo">
+                <div class="texto">
+                    <span>Steam Engine</span>
+                    <div class="wiki">
+                        <p>
+                            A Máquina a Vapor é um bloco que fornece Força Rotacional. Tem a maior capacidade de
+                            Estresse
+                            (SU) de todos os blocos geradores de energia do modo de sobrevivência, com capacidade de
+                            Estresse comparável ao Motor Criativo. Ele converte a pressão causada pelo aquecimento da
+                            água
+                            em um tanque de fluido em movimento rotacional, permitindo a produção de itens em larga
+                            escala e
+                            várias engenhocas.
+                        </p>
+                        <p>
+                            Os motores a vapor usam água aquecida para energia e são colocados em tanques de fluido
+                            usados
+                            como caldeira. São necessários pelo menos 4 tanques de fluido e 1 bloco de fonte de calor.
+                            Um
+                            eixo pode ser usado no motor para produzir uma saída cinética.
+                        </p>
+                        <p>
+                            A quantidade de energia gerada não é determinada pelo motor a vapor, mas pela caldeira com
+                            base
+                            no tipo e número de fontes de calor, tamanho da caldeira e quantidade de fluxo de água.
+                            Vários
+                            motores a vapor podem ser conectados a uma única caldeira; no entanto, isso não aumentará a
+                            potência total gerada pela caldeira. Aumentar a potência total requer que uma ou mais das
+                            três
+                            características (calor, tamanho, água) da caldeira sejam aumentadas.
+                        </p>
+                        <p>
+                            Todas as fontes de calor passivas geram a mesma quantidade de calor. Mais energia pode ser
+                            gerada com a ajuda de Blaze Burners, que produzem quantidades variadas de calor, dependendo
+                            de
+                            seu estado. Adicionar tanques de fluido adicionais e tubos de entrada de água também pode
+                            gerar
+                            mais energia. Em níveis de potência mais altos, mais motores a vapor são necessários para
+                            extrair a potência rotacional da caldeira.
+                        </p>
+                        <p>
+                            Os requisitos de água para uma máquina a vapor dependem de seu nível, com níveis mais altos
+                            consumindo mais água. Para controlar o fluxo de água, você pode usar uma bomba de fluido e
+                            um
+                            controlador de velocidade de rotação ou outro método para ajustar a velocidade da bomba.
+                            Isso
+                            permite que você alcance diferentes taxas de transferência de fluido para diferentes níveis
+                            de
+                            motor.
+                        </p>
+                        <p>
+                            Ao operar uma máquina a vapor, é importante garantir que você tenha a quantidade correta de
+                            água
+                            fluindo por ela. Para cada nível de uma máquina a vapor, você precisará fornecer 10 mb/t de
+                            água. Se a fonte de água tocar diretamente nas bombas de fluido, você pode usar a taxa de
+                            transferência de fluido para calcular o rpm:
+                        </p>
+                        <ul>
+                            <li>
+                                Para um motor de nível 1 (passivo), uma bomba de fluido funcionando a 20 rpm é
+                                suficiente.
+                            </li>
+                            <li>
+                                Para um motor de nível 9 (aquecido), é necessária uma bomba de fluido funcionando a 180
+                                rpm.
+                            </li>
+                            <li>
+                                Para um motor de nível 18 (superaquecido), você precisará de duas bombas de fluido
+                                funcionando a
+                                180 rpm cada.
+                            </li>
+                        </ul>
+                        <p>
+                            <b>
+                                Visualizando Níveis de Poder
+                            </b><br>
+                            Os níveis de energia podem ser inspecionados visualizando a caldeira com os óculos do
+                            engenheiro
+                            ou anexando um link de exibição e um bloco de exibição. A taxa de entrada de água necessária
+                            também será destacada neste visor se for insuficiente. Os níveis são mostrados como um
+                            número
+                            que representa o número de máquinas a vapor que podem ser conectadas. O número máximo de
+                            níveis
+                            de potência é 18. Dezoito máquinas a vapor, cada uma produzindo sua potência máxima de
+                            16.384
+                            SU, dá uma capacidade máxima de estresse da caldeira de 294.912 SU.
+                        </p>
+                        <p>
+                            <b>
+                                Fontes de calor
+                            </b><br>
+                        </p>
+                        <ul>
+                            <li>
+                                Passivo (0 níveis de aquecimento)
+                                <ul>
+                                    <li>
+                                        Fogo
+                                    </li>
+                                    <li>
+                                        Fogueira
+                                    </li>
+                                    <li>
+                                        Lava
+                                    </li>
+                                    <li>
+                                        Bloco de Magma
+                                    </li>
+                                    <li>
+                                        Blaze Burner Vazio acesso com isqueiro
+                                    </li>
+                                    <li>
+                                        Blaze Burner em combustão lenta
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Ativo (1 nível de aquecimento por Blaze Burner)
+                                <ul>
+                                    <li>
+                                        Queimador Blaze aquecido
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Overclock (2 níveis de aquecimento por Blaze Burner)
+                                <ul>
+                                    <li>
+                                        Blaze Burner superaquecido
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Final do Banner-->
+
+    <!--Começo do Footer-->
+    <div class="footer">
+        <div class="container">
+            <div class="footerItem">
+                <a href="index.html">
+                    <img src="assets/imgs/Site-logo.png" alt="">
+                </a>
+                <p>Projeto criado com carinho para auxiliar jogadores novatos</p>
+            </div>
+            <div class="footerItem">
+                <h2>LINKS</h2>
+                <ul class="navFooter">
+                    <li><a href="perfil.html">GERADORES</a></li>
+                    <li><a href="login.html">LOGIN</a></li>
+                    <li><a href="cadastro.html">CADASTRO</a></li>
+                </ul>
+            </div>
+            <div class="footerItem">
+                <h2>CONTATO</h2>
+                <ul class="navFooter contato">
+                    <li>
+                        <img src="assets/imgs/instagram.png" alt="">
+                        <span>@revolCreate</span>
+                    </li>
+                    <li>
+                        <img src="assets/imgs/o-email.png" alt="">
+                        <span>revolCreate@email.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--Final do Footer-->
+
+</body>
+
+</html>
+<script>
+
+</script>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Schematicannon | Revolução Create</title>
+
+    <script src="./js/funcoes.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/imgs/Andesite_Alloy.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+
+<body>
+    <!--Começo do Header-->
+    <div class="header">
+        <div class="container">
+            <a href="index.html">
+                <img src="assets/imgs/Site-logo.png" alt="">
+            </a>
+            <ul class="navBar">
+                <li><a href="perfil.html" class="bttLinkInterno">GERADORES</a></li>
+                <li><a href="login.html" class="bttLink">LOGIN</a></li>
+                <li><a href="cadastro.html" class="bttLink">CADASTRO</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--Final do Header-->
+
+    <!--Começo do Banner-->
+    <div class="banner">
+        <div class="container">
+            <div class="corDeFundo">
+                <div class="texto">
+                    <span>Wiki</span>
+                    <p>Essa página tem como propósito explicar resumidamente alguns conceitos básicos do mod e auxiliar
+                        jogadores que estejam interessados em aprender como funciona o Create.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="corDeFundo">
+                <div class="texto">
+                    <span>Schematicannon</span>
+                    <div class="wiki">
+                        <p>
+                            O Schematicannon é um tipo especial de máquina usada para construir estruturas com o uso de
+                            Schematics. É uma engenhoca útil que é usada principalmente no Modo Sobrevivência para
+                            implantar
+                            estruturas bloco a bloco, já que a função de posicionamento direto para Esquemas é limitada
+                            exclusivamente ao Modo Criativo.
+                        </p>
+                        <p>
+                            <b>
+                                Preparação de canhão
+                            </b><br>
+                            Um Schematic deve primeiro ser posicionado no mundo antes de ser colocado no canhão.
+                            Posicione
+                            o esquema clicando com o botão direito. Enquanto segura o esquema, a seleção e um menu de
+                            controle podem ser visualizados.
+                        </p>
+                        <p>
+                            O canhão pegará os blocos necessários para construir a estrutura de quaisquer inventários
+                            adjacentes. O canhão aceitará qualquer bloco do tipo inventário, desde que tenha a função de
+                            saída de seu conteúdo.
+                        </p>
+                        <p>
+                            O canhão se alimenta de pólvora, consumindo uma vez a cada 400 blocos. O slot para pólvora
+                            está
+                            localizado no segmento superior esquerdo do menu e pode conter até uma pilha em um
+                            determinado
+                            período. O canhão pode consumir até 5 pólvoras quando acionado pela primeira vez e terá uma
+                            barra para indicador de combustível próximo ao slot de entrada.
+                        </p>
+                        <p>
+                            <b>
+                                Configurações de canhão
+                            </b><br>
+                            No segmento inferior do menu do canhão, há um botão que indica as configurações da
+                            impressora.
+                            Clicar no botão mostrará uma lista das seguintes configurações.
+                        </p>
+                        <p>
+                            <b>
+                                Configurações de bloco sólido
+                            </b><br>
+                            Apenas uma das quatro configurações a seguir pode estar ativa a qualquer momento. Essas
+                            configurações indicam o comportamento da sobreposição esquemática com blocos sólidos na área
+                            selecionada.
+                        </p>
+                        <ul>
+                            <li>
+                                Não substitua blocos sólidos - O canhão nunca substituirá nenhum bloco sólido em sua
+                                área de
+                                trabalho, apenas não sólido e ar.
+
+                            </li>
+                            <li>
+                                Substituir sólido por sólido - O canhão só substituirá blocos sólidos em sua área de
+                                trabalho se
+                                o Schematic contiver um bloco sólido no local.
+                            </li>
+                            <li>
+                                Substituir sólido por qualquer (seleção padrão) - O canhão substituirá blocos sólidos em
+                                sua
+                                área de trabalho se o Schematic contiver algum bloco no local.
+                            </li>
+                            <li>
+                                Substituir Sólido por Vazio - O canhão limpará todos os blocos em sua área de trabalho,
+                                incluindo aqueles substituídos por Ar.
+                            </li>
+                        </ul>
+                        <p>
+                            <b>
+                                Configurações Diversas
+                            </b><br>
+                            Essas configurações podem ser alternadas independentemente das outras configurações.
+                        </p>
+                        <ul>
+                            <li>
+                                Ignorar blocos ausentes - Se o canhão não conseguir encontrar um bloco necessário para a
+                                colocação, ele continuará no próximo local.
+                            </li>
+                            <li>
+                                Proteger entidades lado a lado (seleção padrão) - O canhão evitará a substituição de blocos de
+                                retenção de dados, como baús.
+                            </li>
+                        </ul>
+                        <p>
+                            <b>
+                                Lista de controle
+                            </b><br>
+                            Um livro pode ser colocado no menu do canhão (atualmente localizado no segmento superior direito
+                            da GUI) para criar uma lista dos blocos necessários na forma de um livro escrito, considerando
+                            os blocos disponíveis em inventários adjacentes. O mesmo livro pode ser reutilizado
+                            continuamente para atualizar a lista de verificação, dadas quaisquer alterações no inventário
+                            adjacente ou no andamento da construção.
+                        </p>
+                        <p>
+                            <b>
+                                Tiro de canhão
+                            </b><br>
+                            Assim que as configurações e todas as condições preliminares forem atendidas para o canhão, o
+                            jogador pode iniciar o processo de disparo. Observação: o canhão não precisa estar voltado para
+                            a direção correta da área selecionada, pois ele se autocorrige durante o processo. No segmento
+                            intermediário do menu do canhão, existem 3 botões que controlam o status do canhão. Reproduzir,
+                            Pausar e Parar, respectivamente. Por padrão, o canhão começa em um estado pausado, com um
+                            indicador amarelo no topo. Para iniciar o disparo do canhão, clique no botão Play. Isso ativará
+                            o disparo do canhão, com um indicador verde no topo. Se o jogador desejar parar/encerrar o
+                            disparo, ele o fará pressionando o botão Parar, que funcionará como se o Esquema tivesse sido
+                            construído.
+                        </p>
+                        <p>
+                            O canhão será construído em um método aditivo, começando da camada inferior e trabalhando até o
+                            topo.
+                        </p>
+                        <p>
+                            O canhão não tem um limite nativo para seu alcance. No entanto, ele só será construído se a área
+                            selecionada for carregada em seu respectivo bloco. Portanto, é recomendado que o canhão e o
+                            jogador fiquem perto da área de seleção, ou que outro jogador carregue os pedaços se for usado
+                            em um servidor. Além disso, o canhão só pode ser construído dentro de sua dimensão designada.
+                        </p>
+                        <p>
+                            Assim que o canhão terminar de disparar, ele tocará um som 'Ding' para informar ao jogador que o
+                            processo de construção está completo. O menu retornará ao estado parado, com um indicador
+                            vermelho na parte superior do botão. O Esquema consumido retornará a um Esquema Vazio, que
+                            poderá ser usado novamente no futuro.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Final do Banner-->
+
+    <!--Começo do Footer-->
+    <div class="footer">
+        <div class="container">
+            <div class="footerItem">
+                <a href="index.html">
+                    <img src="assets/imgs/Site-logo.png" alt="">
+                </a>
+                <p>Projeto criado com carinho para auxiliar jogadores novatos</p>
+            </div>
+            <div class="footerItem">
+                <h2>LINKS</h2>
+                <ul class="navFooter">
+                    <li><a href="perfil.html">GERADORES</a></li>
+                    <li><a href="login.html">LOGIN</a></li>
+                    <li><a href="cadastro.html">CADASTRO</a></li>
+                </ul>
+            </div>
+            <div class="footerItem">
+                <h2>CONTATO</h2>
+                <ul class="navFooter contato">
+                    <li>
+                        <img src="assets/imgs/instagram.png" alt="">
+                        <span>@revolCreate</span>
+                    </li>
+                    <li>
+                        <img src="assets/imgs/o-email.png" alt="">
+                        <span>revolCreate@email.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--Final do Footer-->
+
+</body>
+
+</html>
+<script>
+
+</script>
