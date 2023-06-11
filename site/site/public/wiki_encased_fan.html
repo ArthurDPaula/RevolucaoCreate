@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Encased Fan | Revolução Create</title>
+
+    <script src="./js/funcoes.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/imgs/Andesite_Alloy.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+
+<body>
+    <!--Começo do Header-->
+    <div class="header">
+        <div class="container">
+            <a href="index.html">
+                <img src="assets/imgs/Site-logo.png" alt="">
+            </a>
+            <ul class="navBar">
+                <li><a href="perfil.html" class="bttLinkInterno">GERADORES</a></li>
+                <li><a href="login.html" class="bttLink">LOGIN</a></li>
+                <li><a href="cadastro.html" class="bttLink">CADASTRO</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--Final do Header-->
+
+    <!--Começo do Banner-->
+    <div class="banner">
+        <div class="container">
+            <div class="corDeFundo">
+                <div class="texto">
+                    <span>Wiki</span>
+                    <p>Essa página tem como propósito explicar resumidamente alguns conceitos básicos do mod e auxiliar
+                        jogadores que estejam interessados em aprender como funciona o Create.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="corDeFundo">
+                <div class="texto">
+                    <span>Encased Fan</span>
+                    <div class="wiki">
+                        <p>
+                            O Encased Fan é um componente mecânico que pode criar correntes de ar. Ventiladores
+                            encapsulados são usados para mover entidades, transporte vertical de itens, Bulk Washing,
+                            Bulk Blasting, Bulk Haunting, and Bulk Smoking.
+                        </p>
+                        <p>
+                            O Encased Fan se conecta a outros componentes rotacionais na parte traseira.
+                        </p>
+                        <p>
+                            <b>Empurrando e puxando entidades</b><br>
+                            Quando alimentado por força rotacional, um Encased Fan cria um fluxo de ar que se
+                            estende por vários blocos à sua frente. Este fluxo de ar empurra entidades para longe do
+                            ventilador ou puxa entidades em direção a ele, dependendo da direção da rotação que o
+                            ventilador recebe. Alimentar um Encased Fan com força rotacional mais rápida fará
+                            com que seu fluxo de ar seja mais forte e mais rápido.
+                        </p>
+                        <table class="wiki-table">
+                            <caption>Distância de envio da entidade</caption>
+                            <tbody>
+                                <tr class="table-header">
+                                    <th>Velocidade em RPM
+                                    </th>
+                                    <th>Distância em blocos
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>1-12RPM
+                                    </td>
+                                    <td>4 Blocos
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>16-28 RPM
+                                    </td>
+                                    <td>5 Blocos
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>32 RPM
+                                    </td>
+                                    <td>6 Blocos
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>48 RPM
+                                    </td>
+                                    <td>7 Blocos
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>64 RPM
+                                    </td>
+                                    <td>8 Blocos
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>80 RPM
+                                    </td>
+                                    <td>9 Blocos
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>96 RPM
+                                    </td>
+                                    <td>10 Blocos
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>112 RPM
+                                    </td>
+                                    <td>11 Blocos
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>128 RPM
+                                    </td>
+                                    <td>12 Blocos
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>192 RPM
+                                    </td>
+                                    <td>16 Blocos
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>256 RPM
+                                    </td>
+                                    <td>20 Blocos
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>
+                            Os itens sempre serão empurrados, mas mobs ou jogadores não serão empurrados até que o Fan
+                            esteja funcionando a pelo menos 4 rpm. A distância máxima de empurrar e puxar pode ser
+                            alterada no Config.
+                        </p>
+                        <p>
+                            <b>Transporte vertical de itens</b><br>
+                            Os Fans também podem ser usados para empurrar ou puxar itens pelos Chutes. Os itens
+                            inseridos nas calhas serão empurrados/puxados pelo ventilador.
+                        </p>
+                        <p>
+                            <b>Processamento de itens a granel</b><br>
+                            Quando o fluxo de ar de um Encased Fan passa por determinados blocos, o fluxo de
+                            ar a jusante aplicará o respectivo processamento aos itens.
+                        </p>
+                        <ul>
+                            <li>Washing</li>
+                            <ul>
+                                <li>Water</li>
+                            </ul>
+                            <li>Smoking</li>
+                            <ul>
+                                <li>Fire</li>
+                                <li>Campfire</li>
+                                <li>Empty Blaze Burner acesso com Flint and Steel</li>
+                                <li>Blaze Burner(ardente)</li>
+                            </ul>
+                            <li>Blasting</li>
+                            <ul>
+                                <li>Lava</li>
+                                <li>Blaze Burner(Abastecido)</li>
+                            </ul>
+                            <li>Haunting</li>
+                            <ul>
+                                <li>Soul Fire</li>
+                                <li>Soul Campfire</li>
+                                <li>Empty Blaze Burner acesso com Flint e Steel e clicado com o botão direito com Soul
+                                    Sand ou Soul Soil.</li>
+                            </ul>
+                        </ul>
+                        <p>
+                            As respectivas receitas são aplicadas às entidades de itens quando elas se sentam no fluxo
+                            de ar, sejam elas no mundo, em um cinto mecânico ou em um depósito. Essas receitas podem ser
+                            aplicadas a vários itens de uma só vez.
+                        </p>
+                        <p>
+                            A corrente de ar do Fan pode passar por certos blocos, como os não sólidos e os marcados com
+                            FAN_TRANSPARENT. Testes de 4 raios também são realizados para verificar se há furos na forma
+                            de colisão do bloco. Esses blocos podem ser úteis para a construção de configurações de
+                            processamento de itens a granel, pois podem reter a lava ou a água enquanto permitem a
+                            passagem do ar. A seguir está uma lista de blocos com a tag FAN_TRANSPARENT:
+                        </p>
+                        <ul>
+                            <li>Cercas</li>
+                            <li>Barras de ferro</li>
+                            <li>Barras de metal</li>
+                            <li>#Fogueiras</li>
+                            <li>Folhas</li>
+                            <li>Sail Frames</li>
+                        </ul>
+                        <p>
+                            <b>Mob Interaction</b><br>
+                            Quando o jogador ou um mob entra em um fluxo de processamento em massa, vários efeitos podem
+                            ser aplicados.
+                        </p>
+                        <ul>
+                            <li>Smoking incendeia a entidade e causa 2♥ ou 3♥♥ de dano dependendo da Dificuldade.</li>
+                            <li>Blasting incendeia a entidade e causa 3♥♥, 4♥♥ ou 6♥♥♥ de dano, dependendo da
+                                Dificuldade.</li>
+                            <li>Fluxos de Washing extinguem as entidades em chamas e causam 2 ♥ de dano a Endermen,
+                                Blazes e Snow Golems.</li>
+                            <li>Fluxos de Haunting aplicam Lentidão II e Cegueira.</li>
+                        </ul>
+                        <p>
+                            <b>Velocidade de processamento de itens</b><br>
+                            Todas as formas de processamento em massa (Smoking, Blasting, Washing e Haunting)
+                            processam itens nas mesmas velocidades. Vários ventiladores aplicando o mesmo efeito de
+                            processamento no mesmo bloco dividem o tempo de processamento. Por exemplo, dois
+                            ventiladores criando um fluxo de ar através da água processarão a mesma quantidade de itens
+                            duas vezes mais rápido que um ventilador. No entanto, diferentes tamanhos de pilha levam um
+                            tempo diferente para serem processados, conforme listado abaixo:
+                        </p>
+                        <table class="wiki-table">
+                            <caption>Velocidades de processamento de itens</caption>
+                            <tbody>
+                                <tr class="table-header">
+                                    <th>Contagem de itens em uma pilha
+                                    </th>
+                                    <th>Tempo de processamento<br>
+                                        (dividir pela quantidade de Fans)
+                                    </th>
+                                    <th>Velocidade máxima da belt<br>
+                                        (multiplique pela quantidade de Fans)
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>1-16
+                                    </td>
+                                    <td>7.5 segundos
+                                    </td>
+                                    <td>3.2 RPM
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>17-32
+                                    </td>
+                                    <td>15 segundos
+                                    </td>
+                                    <td>1.6 RPM
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>33-48
+                                    </td>
+                                    <td>22.5 segundos
+                                    </td>
+                                    <td>1.06 RPM
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>49-64
+                                    </td>
+                                    <td>30 segundos
+                                    </td>
+                                    <td>0.8 RPM
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>
+                            Observe que se a saída de uma receita também for uma entrada válida para uma receita diferente (como Cobblestone → Stone → Smooth Stone), a segunda receita começará a ser processada imediatamente após a conclusão da anterior. Use Depots com Brass Funnels filtrados, Mechanical Arms com saídas filtradas ou Mechanical Belts ajustadas para a velocidade correta (conforme listado acima).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Final do Banner-->
+
+    <!--Começo do Footer-->
+    <div class="footer">
+        <div class="container">
+            <div class="footerItem">
+                <a href="index.html">
+                    <img src="assets/imgs/Site-logo.png" alt="">
+                </a>
+                <p>Projeto criado com carinho para auxiliar jogadores novatos</p>
+            </div>
+            <div class="footerItem">
+                <h2>LINKS</h2>
+                <ul class="navFooter">
+                    <li><a href="perfil.html">GERADORES</a></li>
+                    <li><a href="login.html">LOGIN</a></li>
+                    <li><a href="cadastro.html">CADASTRO</a></li>
+                </ul>
+            </div>
+            <div class="footerItem">
+                <h2>CONTATO</h2>
+                <ul class="navFooter contato">
+                    <li>
+                        <img src="assets/imgs/instagram.png" alt="">
+                        <span>@revolCreate</span>
+                    </li>
+                    <li>
+                        <img src="assets/imgs/o-email.png" alt="">
+                        <span>revolCreate@email.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--Final do Footer-->
+
+</body>
+
+</html>
+<script>
+
+</script>

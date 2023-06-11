@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Eixos | Revolução Create</title>
+    <title>Mechanical Press | Revolução Create</title>
 
     <script src="./js/funcoes.js"></script>
     <link rel="stylesheet" href="css/style.css">
@@ -43,24 +43,49 @@
         <div class="container">
             <div class="corDeFundo">
                 <div class="texto">
-                    <span>Eixos</span>
+                    <span>Mechanical Press</span>
                     <div class="wiki">
                         <p>
-                            O eixo é um componente mecânico básico no Create. Um eixo pode ser usado para conectar dois
-                            componentes mecânicos de modo que a rotação de um gire o outro, e os eixos servem como os únicos blocos sobre os quais as Esteiras Mecânicas podem ser colocadas. Eixos são a base do Create.
+                            A <b>Mechanical Press</b> é um componente mecânico que aplica receitas de Pressing, Packing, and Compacting aos itens abaixo dele. É um item importante no início do jogo, pois é usado para pressionar Lingotes em Sheets, que são ingredientes importantes para componentes de nível superior.
                         </p>
                         <p>
-                            <b>Conectando componentes</b><br>
-                            Quando dois componentes mecânicos são conectados por um eixo, qualquer força rotacional fornecida a qualquer um dos componentes também será fornecida ao outro componente na mesma velocidade. Como tal, se ambos os componentes fornecerem tensão, isso pode fazer com que a
-                            máquina fique sobrecarregada.
+                            A Mechanical Press é acionada por um Eixo interno, acessado por dois lados opostos. Assim como os eixos, as Mechanical Press retransmitirão a rotação ao longo de seu eixo. Ele processa itens mais rapidamente quando recebe energia rotacional mais rápida.
                         </p>
                         <p>
-                            <b>Mechanical Belts</b><br>
-                            Uma Mechanical Belt deve ser colocada entre dois eixos. Os eixos devem ser horizontais, paralelos entre si e perpendiculares à própria correia, e devem estar alinhados horizontalmente, verticalmente ou diagonalmente. Observe que você não pode ter outros ângulos diagonais além de 45°. Além disso, nenhuma obstrução pode existir entre os dois
-                            pontos finais, com exceção de outros eixos.
+                            <b>Pressing</b><br>
+                            Por padrão, a Mechanical Press aplicará receitas de Pressing aos itens abaixo dela. Isso pode ser configurado de duas maneiras:
+                        </p>
+                        <ul>
+                            <li>Quando colocado um espaço acima de qualquer bloco, ele processará todos os itens válidos no bloco quando receber poder de rotação. Itens sem receita de prensagem não são afetados</li>
+                            <li>Quando colocado um espaço acima de um cinto mecânico, ele pressionará automaticamente os itens recebidos, parando o cinto até que cada operação seja concluída. Itens sem receita de prensagem são ignorados.
+                            </li>
+                        </ul>
+                        <p>
+                            As receitas de Pressing não podem ser aplicadas em massa.
                         </p>
                         <p>
-                            Uma <b>Brass Casing</b> pode ser colocada sobre qualquer segmento de uma Mechanical Belt, e isso inclui segmentos que contêm eixos.
+                            Usado para criar Iron Sheet, Golden Sheet, Copper Sheet, Brass Sheet, Paper e Grass Path
+                        </p>
+                        <p>
+                            <b>Packing</b><br>
+                            Quando uma Mechanical Press é colocada acima de uma Bacia, ela aplica receitas de Packing ou Compacting aos ingredientes na Bacia. As receitas de Packing e compactação são aplicadas uma de cada vez e não podem ser aplicadas em massa.
+                        </p>
+                        <p>
+                            As receitas de Packing são quaisquer receitas de criação 2x2 ou 3x3 que usam o mesmo item em todos os slots. Alguns exemplos são:
+                        </p>
+                        <ul>
+                            <li>Lã Branca</li>
+                            <li>Bloco de Slime</li>
+                        </ul>
+                        <p>
+                            A Mechanical Press começará a embalar itens assim que houver o suficiente do mesmo item.
+                        </p>
+                        <p>
+                            <b>Compacting</b><br>
+                            Quando uma Mechanical Press é colocada acima de uma Bacia, ela aplica receitas de Packing ou Compacting aos ingredientes na Bacia. As receitas de empacotamento e compactação são aplicadas uma de cada vez e não podem ser aplicadas em massa.
+                        </p>
+                        <p>
+                            A Press processará automaticamente qualquer receita válida que detectar dentro da Bacia, independentemente de haver sobras dentro dela, desde que a Bacia tenha espaço de estoque restante.
                         </p>
                     </div>
                 </div>
@@ -81,7 +106,7 @@
             <div class="footerItem">
                 <h2>LINKS</h2>
                 <ul class="navFooter">
-                    <li><a href="">GERADORES</a></li>
+                    <li><a href="perfil.html">GERADORES</a></li>
                     <li><a href="login.html">LOGIN</a></li>
                     <li><a href="cadastro.html">CADASTRO</a></li>
                 </ul>
