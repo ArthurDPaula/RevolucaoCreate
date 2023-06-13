@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/perfil.css">
     <link rel="stylesheet" href="css/dashboards.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/funcoes.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="icon" href="assets/imgs/Andesite_Alloy.png" type="image/png">
 </head>
 <!--validarSessao(),-->
 
-<body onload=" atualizarFeed()">
+<body onload="validarSessao()">
     <!--Começo do Header-->
     <div class="header">
         <div class="container">
@@ -67,14 +68,17 @@
                         <span>Velocidade de Rotação:</span>
                     </div>
                 </div>
-                <div class="dash">
-                    <div id="alerta">
-                    </div>
 
-                    <div class="btns-dash" id="btnAquario">
-                        <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-                    </div>
+                <div class="dash">
                     <div id="graficos">
+                        <div id="grafico">
+                            <h3 class="tituloGraficos">
+                                <span id="tituloAquario">Velocidade</span>
+                            </h3>
+                            <div class="graph">
+                                <canvas id="myChartCanvas"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -122,19 +126,19 @@
 <script>
     var idUser = sessionStorage.ID_USUARIO;
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-    var vetMedidas= {
+    var vetMedidas = {
         baixa: 0,
         media: 0,
         alta: 0,
         muito_alta: 0
     }
-
+    var vetDados = []
     let proximaAtualizacao;
 
     function limparFormulario() {
         document.getElementById("form_postagem").reset();
     }
-    window.onload = obterDadosGrafico()
+    window.onload = obterDadosGrafico(),atualizarFeed()
 
 
 
@@ -284,7 +288,7 @@
                     feed.innerHTML = "";
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
-
+                        console.log('oi')
                         // criando e manipulando elementos do HTML via JavaScript
                         var spanID = document.createElement("span");
                         var spanVelas = document.createElement("span");
@@ -350,6 +354,23 @@
                 response.json().then(function (resposta) {
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
+                    vetDados = resposta
+                    console.log(vetDados)
+                    for (let index = 0; index < vetDados.length; index++) {
+                        if (vetDados[index].rpm >= 1 && vetDados[index].rpm <= 4) {
+                            vetMedidas.baixa++
+                            console.log(vetMedidas.baixa)
+                        } else if (vetDados[index].rpm >= 5 && vetDados[index].rpm <= 8) {
+                            vetMedidas.media++
+                            console.log(vetMedidas.media)
+                        } else if (vetDados[index].rpm >= 9 && vetDados[index].rpm <= 12) {
+                            vetMedidas.alta++
+                            console.log(vetMedidas.alta)
+                        } else if (vetDados[index].rpm >= 13 && vetDados[index].rpm <= 16) {
+                            vetMedidas.muito_alta++
+                            console.log(vetMedidas.muito_alta)
+                        }
+                    }
 
                     plotarGrafico(resposta);
 
@@ -363,10 +384,6 @@
             });
     }
 
-    function name(params) {
-        
-    }
-
     function plotarGrafico(resposta) {
 
         console.log('iniciando plotagem do gráfico...');
@@ -378,17 +395,10 @@
         let dados = {
             labels: labels,
             datasets: [{
-                label: 'Umidade',
+                label: 'RPM',
                 data: [],
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            },
-            {
-                label: 'Temperatura',
-                data: [],
-                fill: false,
-                borderColor: 'rgb(199, 52, 52)',
                 tension: 0.1
             }]
         };
@@ -398,12 +408,11 @@
         console.log(resposta)
 
         // Inserindo valores recebidos em estrutura para plotar o gráfico
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            labels.push(registro.momento_grafico);
-            dados.datasets[0].data.push(registro.umidade);
-            dados.datasets[1].data.push(registro.temperatura);
-        }
+        //for (i = 0; i < resposta.length; i++) {
+        //    var registro = resposta[i];
+            labels.push('RPM');
+            dados.datasets[0].data.push(vetMedidas.baixa, vetMedidas.media, vetMedidas.alta, vetMedidas.muito_alta);
+        //}
 
         console.log('----------------------------------------------')
         console.log('O gráfico será plotado com os respectivos valores:')
@@ -415,17 +424,18 @@
 
         // Criando estrutura para plotar gráfico - config
         const config = {
-            type: 'donut',
+            type: 'pie',
             data: dados,
         };
 
         // Adicionando gráfico criado em div na tela
+         
         let myChart = new Chart(
             document.getElementById(`myChartCanvas`),
             config
         );
 
-        setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+       // setTimeout(() => atualizarGrafico(dados, myChart), 2000);
     }
 
 
