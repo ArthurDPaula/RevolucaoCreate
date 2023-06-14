@@ -138,7 +138,7 @@
     function limparFormulario() {
         document.getElementById("form_postagem").reset();
     }
-    window.onload = obterDadosGrafico(),atualizarFeed()
+    window.onload = obterDadosGrafico(), atualizarFeed()
 
 
 
@@ -389,13 +389,13 @@
         console.log('iniciando plotagem do gráfico...');
 
         // Criando estrutura para plotar gráfico - labels
-        let labels = [];
+        let labels = ['Baixa', 'Média', 'Alta', 'Muito Alta'];
 
         // Criando estrutura para plotar gráfico - dados
         let dados = {
             labels: labels,
             datasets: [{
-                label: 'RPM',
+                label: 'Número de registros',
                 data: [],
                 fill: false,
                 borderColor: 'rgb(75, 192, 192)',
@@ -407,12 +407,7 @@
         console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
         console.log(resposta)
 
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
-        //for (i = 0; i < resposta.length; i++) {
-        //    var registro = resposta[i];
-            labels.push('RPM');
-            dados.datasets[0].data.push(vetMedidas.baixa, vetMedidas.media, vetMedidas.alta, vetMedidas.muito_alta);
-        //}
+        dados.datasets[0].data.push(vetMedidas.baixa, vetMedidas.media, vetMedidas.alta, vetMedidas.muito_alta);
 
         console.log('----------------------------------------------')
         console.log('O gráfico será plotado com os respectivos valores:')
@@ -429,13 +424,13 @@
         };
 
         // Adicionando gráfico criado em div na tela
-         
+
         let myChart = new Chart(
             document.getElementById(`myChartCanvas`),
             config
         );
 
-       // setTimeout(() => atualizarGrafico(dados, myChart), 2000);
+        // setTimeout(() => atualizarGrafico(dados, myChart), 2000);
     }
 
 

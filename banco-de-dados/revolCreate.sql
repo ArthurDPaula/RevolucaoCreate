@@ -13,3 +13,4 @@ CREATE TABLE geradores (
     velocRPM INT,
     fkUsuario INT, FOREIGN KEY(fkUsuario) REFERENCES usuario(idUsuario)
 	);
+    DROP DATABASE RevolucaoCreate;
