@@ -1,16 +1,18 @@
-CREATE DATABASE RevolucaoCreate;
-USE RevolucaoCreate;
+CREATE DATABASE revolCreate;
+
+USE revolCreate;
+
 CREATE TABLE usuario (
-	idUsuario INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(45) NOT NULL,
-    email VARCHAR(45) NOT NULL,
-    senha VARCHAR(45) NOT NULL
-    );
+	idUser INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(50),
+	email VARCHAR(50),
+	senha VARCHAR(50)
+);
 CREATE TABLE geradores (
-	idGeradores INT PRIMARY KEY AUTO_INCREMENT,
-    qtdeVelas INT NOT NULL,
-    energiaGerada INT,
-    velocRPM INT,
-    fkUsuario INT, FOREIGN KEY(fkUsuario) REFERENCES usuario(idUsuario)
-	);
-    DROP DATABASE RevolucaoCreate;
+	idGerador INT PRIMARY KEY AUTO_INCREMENT,
+	qtdeVelas INT,
+	energia INT,
+	rpm INT,
+	fkUser INT,
+	FOREIGN KEY (fkUser) REFERENCES usuario(idUser)
+);

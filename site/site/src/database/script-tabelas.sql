@@ -17,7 +17,7 @@ CREATE TABLE geradores (
 	fkUser INT,
 	FOREIGN KEY (fkUser) REFERENCES usuario(idUser)
 );
-
+SELECT * FROM usuario;
 SELECT rpm from geradores;
 INSERT INTO geradores VALUES
 (NULL, 8, 512, 1, 1);
