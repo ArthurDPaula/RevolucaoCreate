@@ -54,7 +54,7 @@
                             </label>
                             <br>
                             <p>
-                                <button>Enviar</button>
+                                <button id="bttEnviar">ENVIAR</button>
                             </p>
                         </form>
                     </div>
@@ -62,10 +62,6 @@
                 <h2>Geradores Registrados</h2>
                 <div class="div-results">
                     <div id="feed_container">
-                        <span>Id:</span>
-                        <span>Quantidade de Velas:</span>
-                        <span>Energia Gerada:</span>
-                        <span>Velocidade de Rotação:</span>
                     </div>
                 </div>
 
@@ -126,7 +122,7 @@
 <script>
     var idUser = sessionStorage.ID_USUARIO;
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-    var vetMedidas = {
+    var jsonMedidas = {
         baixa: 0,
         media: 0,
         alta: 0,
@@ -294,41 +290,22 @@
                         var spanVelas = document.createElement("span");
                         var spanEnergia = document.createElement("span");
                         var spanRPM = document.createElement("span");
-                        var divItem = document.createElement("div")
-                        //var divDescricao = document.createElement("div");
-                        //var divButtons = document.createElement("div");
-                        //var btnEditar = document.createElement("button");
-                        //var btnDeletar = document.createElement("button");
+                        var spanFkUser = document.createElement("span");
+                        var divItem = document.createElement("div");
 
                         spanID.innerHTML = "ID: <b>" + publicacao.idGerador + "</b>";
                         spanVelas.innerHTML = "Quantidade de Velas: <b>" + publicacao.qtdeVelas + "</b>";
                         spanEnergia.innerHTML = "Energia Gerada: <b>" + publicacao.energia + "</b>";
                         spanRPM.innerHTML = "RPM: <b>" + publicacao.rpm + "</b>";
-                        //btnEditar.innerHTML = "Editar";
-                        //btnDeletar.innerHTML = "Deletar";
+                        spanFkUser.innerHTML = "Nome do Usuário: <b> "+ publicacao.nome + "</b>";
 
                         divItem.className = "feed-item";
-
-                        //feed-item.className = "publicacao";
-                        //spanTitulo.id = "inputNumero" + publicacao.idAviso;
-                        //spanNome.className = "publicacao-nome";
-                        //spanTitulo.className = "publicacao-titulo";
-                        //divDescricao.className = "publicacao-descricao";
-                        //
-                        //divButtons.className = "div-buttons"
-
-                        //btnEditar.className = "publicacao-btn-editar"
-                        //btnEditar.id = "btnEditar" + publicacao.idAviso;
-                        //btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
-
-                        //btnDeletar.className = "publicacao-btn-editar"
-                        //btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-                        //btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
 
                         divItem.appendChild(spanID);
                         divItem.appendChild(spanVelas);
                         divItem.appendChild(spanEnergia);
                         divItem.appendChild(spanRPM);
+                        divItem.appendChild(spanFkUser);
                         feed.appendChild(divItem);
                     }
                     finalizarAguardar();
@@ -341,6 +318,7 @@
             finalizarAguardar();
         });
     }
+
     function obterDadosGrafico() {
 
         //alterarTitulo(idAquario)
@@ -358,22 +336,20 @@
                     console.log(vetDados)
                     for (let index = 0; index < vetDados.length; index++) {
                         if (vetDados[index].rpm >= 1 && vetDados[index].rpm <= 4) {
-                            vetMedidas.baixa++
-                            console.log(vetMedidas.baixa)
+                            jsonMedidas.baixa++
+                            console.log(jsonMedidas.baixa)
                         } else if (vetDados[index].rpm >= 5 && vetDados[index].rpm <= 8) {
-                            vetMedidas.media++
-                            console.log(vetMedidas.media)
+                            jsonMedidas.media++
+                            console.log(jsonMedidas.media)
                         } else if (vetDados[index].rpm >= 9 && vetDados[index].rpm <= 12) {
-                            vetMedidas.alta++
-                            console.log(vetMedidas.alta)
+                            jsonMedidas.alta++
+                            console.log(jsonMedidas.alta)
                         } else if (vetDados[index].rpm >= 13 && vetDados[index].rpm <= 16) {
-                            vetMedidas.muito_alta++
-                            console.log(vetMedidas.muito_alta)
+                            jsonMedidas.muito_alta++
+                            console.log(jsonMedidas.muito_alta)
                         }
                     }
-
                     plotarGrafico(resposta);
-
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -407,7 +383,7 @@
         console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
         console.log(resposta)
 
-        dados.datasets[0].data.push(vetMedidas.baixa, vetMedidas.media, vetMedidas.alta, vetMedidas.muito_alta);
+        dados.datasets[0].data.push(jsonMedidas.baixa, jsonMedidas.media, jsonMedidas.alta, jsonMedidas.muito_alta);
 
         console.log('----------------------------------------------')
         console.log('O gráfico será plotado com os respectivos valores:')
@@ -429,9 +405,6 @@
             document.getElementById(`myChartCanvas`),
             config
         );
-
         // setTimeout(() => atualizarGrafico(dados, myChart), 2000);
     }
-
-
 </script>
